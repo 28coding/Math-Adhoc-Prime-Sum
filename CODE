@@ -1,0 +1,21 @@
+# Math-Adhoc-Prime-Sum | InterviewBit Coding
+//Every even integer greater than 2 can be expressed as the sum of two primes
+bool isprime(int n)
+{
+    for(int i=2;i*i<=n;i++)
+        if(n%i == 0) return 0;
+    return 1;
+}
+
+vector<int> Solution::primesum(int A) 
+{
+    vector<int> v;
+    for(int i=2;i<=A/2;i++)
+        if(isprime(i) && isprime(A-i))
+        {
+            v.push_back(i);
+            v.push_back(A-i);
+            return v;
+        }
+    return v;
+}
